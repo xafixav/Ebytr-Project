@@ -14,6 +14,7 @@ export default class Login extends React.Component {
       user: '',
       password: '',
       noEmptyField: false,
+      apiMessage: '',
     };
   }
 
@@ -37,10 +38,13 @@ export default class Login extends React.Component {
     const { user, password } = this.state;
     const { loginFetch } = this.api;
     const { history } = this.props;
-    const token = await loginFetch({ user, password });
-    if (typeof token === 'string') {
-      localStorage.setItem('userToken', token);
+    const loginResponse = await loginFetch({ user, password });
+    if (loginResponse?.token) {
+      localStorage.setItem('userToken', loginResponse.token);
       history.push('/tasks');
+    }
+    if (loginResponse?.message) {
+      this.setState({ apiMessage: loginResponse.message, user: '', password: '' });
     }
   };
 
@@ -57,8 +61,10 @@ export default class Login extends React.Component {
   };
 
   render() {
+    const { apiMessage } = this.state;
     return (
       <div>
+        <h1>{apiMessage}</h1>
         <OnChangeInput
           onChange={() => this.handleChange}
           name="user"
