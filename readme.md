@@ -3,35 +3,42 @@
 Este projeto tem como finalidade **auxiliar** as pessoas colaboradoras a se organizarem e terem mais **produtividade**.
 
 # Stacks
+
 <details>
 <summary><strong>🛠 Stacks</strong></summary>
 
 O **Ebytr Project** é composto pelas seguintes stacks:
-Front-End: 
->`React.JS`
+Front-End:
 
-Back-End: 
->`Node.Js` feito em TypeScript, utilizando a arquitetura MSC, metodologia POO e SOLID.
+> `React.JS`
+
+Back-End:
+
+> `Node.Js` feito em TypeScript, utilizando a arquitetura MSC, metodologia POO e SOLID.
 
 DB:
->`MySQL`
+
+> `MySQL`
+
 </details>
 
 ## Como utilizar?
+
 <details>
 
 O Projeto é **100%** Dockerizado, possui mais de **80%** de cobertura de testes e foi montado em uma forma da qual seja simples o seu uso.
 
-Simplesmente utilize o comando na pasta ```./Ebytr-Project``` :
+Simplesmente utilize o comando na pasta `./Ebytr-Project` :
+
 ```sh
 npm run project
 ```
-</details>
 
+</details>
 
 ## Diagrama de funcionamento da aplicação.
 
-Um diagrama para melhor entendimento do funcionamento da *aplicação*:
+Um diagrama para melhor entendimento do funcionamento da _aplicação_:
 
 ## Login:
 
