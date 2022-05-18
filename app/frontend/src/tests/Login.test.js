@@ -53,4 +53,15 @@ describe('Testa a pagina de Login', () => {
     userEvent.type(passwordInput, 'senha_teste');
     expect(LoginButton).toBeEnabled();
   });
+
+  it('Se algum dos inputs estiver errado, surge na tela usuario ou password não encontrado', () => {
+    const LoginButton = screen.getByTestId('LoginButton');
+    const passwordInput = screen.getByTestId('passwordLoginInput');
+    const userInput = screen.getByTestId('userLoginInput');
+    userEvent.type(userInput, 'teste@teste.com');
+    userEvent.type(passwordInput, 'senha_teste');
+    userEvent.click(LoginButton);
+    const errorMessage = screen.getAllByText(/Usuario ou password não encontrado/i);
+    expect(errorMessage).toBeInTheDocument();
+  });
 });
