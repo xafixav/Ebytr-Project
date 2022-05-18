@@ -22,8 +22,8 @@ export default class Tasks extends React.Component {
   };
 
   handleChange = (component) => {
-    const { value } = component.target;
-    this.setState({ taskIdSelected: null, task: value });
+    const { name, value } = component.target;
+    this.setState({ [`${name}`]: value, taskIdSelected: null });
   };
 
   handleClick = (component) => {
@@ -46,9 +46,17 @@ export default class Tasks extends React.Component {
   };
 
   render() {
+    const { task } = this.state;
     return (
       <div>
-        <OnChangeInput />
+        <h2>Insira sua tarefa:</h2>
+        <OnChangeInput
+          name="task"
+          onChange={() => this.handleChange}
+          type="text"
+          value={task}
+          dataTestId="TaskInput"
+        />
         <ol>{this.renderTaskList()}</ol>
       </div>
     );
