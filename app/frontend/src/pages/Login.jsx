@@ -10,6 +10,11 @@ export default class Login extends React.Component {
     };
   }
 
+  handleChange = (component) => {
+    const { name, value } = component.target;
+    this.setState({ [`${name}`]: value });
+  };
+
   render() {
     return <div>hello world</div>;
   }
