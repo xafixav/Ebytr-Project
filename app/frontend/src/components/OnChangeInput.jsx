@@ -7,10 +7,16 @@ export default class OnChangeInput extends React.Component {
   }
 
   render() {
-    const { name, onChange, type, dataTestId } = this.props;
+    const { name, onChange, type, dataTestId, value } = this.props;
     return (
       <div>
-        <input name={name} onChange={onChange()} type={type} data-testid={dataTestId} />
+        <input
+          name={name}
+          onChange={onChange()}
+          type={type}
+          data-testid={dataTestId}
+          value={value}
+        />
       </div>
     );
   }
@@ -21,4 +27,5 @@ OnChangeInput.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   dataTestId: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
