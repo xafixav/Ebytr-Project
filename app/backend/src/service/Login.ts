@@ -17,8 +17,8 @@ export default class LoginService {
   }
 
   public findUser = async (data: ILogin): Promise<ILoginResponse> => {
-    const { user } = data;
-    const userPayload = await this.user.findOne({ where: { user } });
+    const { user, password } = data;
+    const userPayload = await this.user.findOne({ where: { user, password } });
 
     if (!userPayload) {
       throw new ErrorExtension({ status: StatusCodes.BAD_REQUEST, message: 'Incorrect user or password' });
@@ -58,7 +58,7 @@ export default class LoginService {
 
       const response = {
         id: User?.id,
-        User: User?.user,        
+        user: User?.user,        
       };
 
       if (User) {
