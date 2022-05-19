@@ -2,7 +2,7 @@ import * as express from 'express';
 import LoginController from '../controller/Login';
 import LoginMiddleware from '../middleware/Login';
 
-const { login } = new LoginController();
+const { login, getUserByToken } = new LoginController();
 const { loginIsValid } = new LoginMiddleware();
 
 const router = express.Router();
@@ -12,6 +12,12 @@ router
   .post(
     loginIsValid,
     login,
+  );
+
+router
+  .route('/login/validate')
+  .get(
+    getUserByToken,
   );
 
 export default router;

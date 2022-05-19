@@ -33,5 +33,5 @@
             "always"
         ]
     },
-    "ignorePatterns": ["**/**/*.js", "src/tests/*.ts", "src/interfaces/*.ts"]
+    "ignorePatterns": ["**/**/*.js", "src/tests/*.ts", "src/tests/*/*.ts", "src/interfaces/*.ts"]
 }

@@ -21,4 +21,18 @@ export default class LoginController {
       next(e);
     }
   };
+
+  public getUserByToken = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { authorization } = req.headers;
+      if (!authorization) {
+        return res.status(StatusCodes.BAD_REQUEST).json({ message: 'Token not exist' });
+      }
+      const user = await this.loginService.getUserByToken(authorization);
+
+      return res.status(StatusCodes.OK).json({ user });
+    } catch (e) {
+      next(e);
+    }
+  };
 }
