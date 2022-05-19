@@ -30,4 +30,17 @@ export default class TasksService {
     return allTasks;
   };
 
+  public createTask = async (data: ITask, token: string) => {
+    const User = await this.loginService.getUserByToken(token);
+
+    if (!User?.id) {
+      throw new ErrorExtension({ status: StatusCodes.UNAUTHORIZED,
+        message: 'User not found or Token invalid' });
+    }
+
+    const createdTask = await Tasks.create(data);
+
+    return createdTask;
+  };
+
 }
