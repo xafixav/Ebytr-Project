@@ -40,6 +40,8 @@ export default class TasksService {
         message: 'User not found or Token invalid' });
     }
 
+    data.userId = User.id;
+
     const createdTask = await Tasks.create(data);
 
     return createdTask;
