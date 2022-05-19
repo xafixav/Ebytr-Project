@@ -1,15 +1,19 @@
 import * as express from 'express';
 import ErrorHandler from './middleware/ErrorHandler';
 import LoginRouter from './Routes/Login';
+import TasksRouter from './Routes/Tasks';
 
 class App {
   public app: express.Express = express();
 
   private LoginRoutes: express.Router;
 
+  private TasksRoutes: express.Router;
+
   constructor() {
     this.config();
     this.LoginRoutes = LoginRouter;
+    this.TasksRoutes = TasksRouter;
   }
 
   private config():void {
@@ -25,8 +29,9 @@ class App {
   }
 
   public apiMethods() {
-    const { LoginRoutes } = this;
+    const { LoginRoutes, TasksRoutes } = this;
     this.app.use(LoginRoutes);
+    this.app.use(TasksRoutes);
     this.app.use(ErrorHandler.ErrorReport);
   }
 
