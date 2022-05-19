@@ -1,6 +1,7 @@
 import './css/App.css';
 import React from 'react';
 import Login from './pages/Login';
+import Tasks from './pages/Tasks';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/tasks" component={Login} />
+          <Route exact path="/tasks" component={Tasks} />
         </Switch>
       </BrowserRouter>
     );
