@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import loginSchema from '../schema/LoginSchema';
 
 export default class LoginMiddleware {
   public loginIsValid = (req: Request, res: Response, next: NextFunction) => {
