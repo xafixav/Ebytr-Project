@@ -61,22 +61,28 @@ export default class Login extends React.Component {
   };
 
   render() {
-    const { apiMessage } = this.state;
+    const { apiMessage, user, password } = this.state;
     return (
       <div>
-        <h1>{apiMessage}</h1>
-        <OnChangeInput
-          onChange={() => this.handleChange}
-          name="user"
-          type="text"
-          dataTestId="userLoginInput"
-        />
-        <OnChangeInput
-          onChange={() => this.handleChange}
-          name="password"
-          type="password"
-          dataTestId="passwordLoginInput"
-        />
+        <h2>{apiMessage}</h2>
+        <div>
+          <h2>Usuario</h2>
+          <OnChangeInput
+            onChange={() => this.handleChange}
+            name="user"
+            type="text"
+            dataTestId="userLoginInput"
+            value={user}
+          />
+          <h2>Password</h2>
+          <OnChangeInput
+            onChange={() => this.handleChange}
+            name="password"
+            type="password"
+            value={password}
+            dataTestId="passwordLoginInput"
+          />
+        </div>
         {this.renderLoginButton()}
       </div>
     );

@@ -17,21 +17,13 @@ export default class ApiFetch {
       },
     };
 
-    const response = await fetch(
-      `https://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/login`,
+    const responseLogin = await fetch(
+      `http://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/login`,
       fetchOption,
-    )
-      .then((resp) => {
-        return JSON.parse(resp);
-      })
-      .then((parsedResponse) => {
-        return parsedResponse;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    );
+    const parseResponse = await responseLogin.json();
 
-    return response;
+    return parseResponse;
   };
 
   tasksFetch = async () => {
@@ -44,19 +36,13 @@ export default class ApiFetch {
       },
     };
 
-    const response = await fetch(
+    const responseGetTasks = await fetch(
       `https://localhost:${process.env.REACT_APP_BACKEND_PORT || '3001'}/tasks`,
       fetchOption,
-    )
-      .then((resp) => {
-        return JSON.parse(resp);
-      })
-      .catch((error) => {
-        if (error) {
-          return 'Failed to fetch';
-        }
-      });
+    );
+    const parseResponse = await responseGetTasks.json();
+    console.log(parseResponse);
 
-    return response !== 'Failed to fetch';
+    return parseResponse;
   };
 }
