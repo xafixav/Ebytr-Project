@@ -11,4 +11,10 @@ router
     TasksController.findAll,
   );
 
+router
+  .route('/tasks')
+  .post(
+    TasksController.createTask,
+  );
+
 export default router;
