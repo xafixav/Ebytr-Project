@@ -2,11 +2,11 @@ module.exports = {
   up: async (queryInterface) => {
     await queryInterface.bulkInsert('users', [
       {
-        username: 'xafixav',
+        user: 'xafixav',
         password: 'secret_xafixav',
       },
       {
-        username: 'Guest',
+        user: 'Guest',
         password: 'secret_guest',
       },
     ], {});

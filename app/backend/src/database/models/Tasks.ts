@@ -5,7 +5,7 @@ import Users from './Users';
 class Tasks extends Model {
   public id: number;
 
-  public tasks: string;
+  public task: string;
 
   public userId: number;
 
@@ -20,7 +20,7 @@ Tasks.init({
     unique: true,
     primaryKey: true,
   },
-  tasks: {
+  task: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: false,
