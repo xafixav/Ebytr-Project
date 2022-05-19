@@ -61,7 +61,7 @@ export default class Login extends React.Component {
   };
 
   render() {
-    const { apiMessage } = this.state;
+    const { apiMessage, user, password } = this.state;
     return (
       <div>
         <h1>{apiMessage}</h1>
@@ -70,11 +70,13 @@ export default class Login extends React.Component {
           name="user"
           type="text"
           dataTestId="userLoginInput"
+          value={user}
         />
         <OnChangeInput
           onChange={() => this.handleChange}
           name="password"
           type="password"
+          value={password}
           dataTestId="passwordLoginInput"
         />
         {this.renderLoginButton()}
