@@ -6,19 +6,26 @@ export default class taskDiv extends React.Component {
     super(props);
     this.state = {
       componentKey: this.props.id,
+      status: this.props.status,
     };
   }
 
+  handleComponentChange = () => {
+    const { onClick, id, task } = this.props;
+    onClick({ id, task });
+  };
+
   render() {
-    const { task, onClick, dataTestId, id, taskIdSelected } = this.props;
+    const { task, dataTestId, id, taskIdSelected, status } = this.props;
     const { componentKey } = this.state;
     return (
       <li data-testid={dataTestId}>
         {task}
+        <button>{status}</button>
         <button
           task={task}
           key={id}
-          onClick={onClick()}
+          onClick={() => this.handleComponentChange()}
           type="button"
           disabled={taskIdSelected === componentKey}>
           Editar
@@ -34,4 +41,5 @@ taskDiv.propTypes = {
   dataTestId: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   taskIdSelected: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
 };
