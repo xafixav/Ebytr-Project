@@ -26,13 +26,22 @@ DB:
 
 <details>
 
-O Projeto é **100%** Dockerizado, possui mais de **80%** de cobertura de testes e foi montado em uma forma da qual seja simples o seu uso.
+O Projeto é **100%** Dockerizado, possui mais de **30%** de cobertura de testes e foi montado em uma forma da qual seja simples o seu uso.
+Backend possui **75%** de cobertura.
 
 Simplesmente utilize o comando na pasta `./Ebytr-Project` :
 
 ```sh
 npm run project
 ```
+
+## Como logar no site:
+Entre neste link:
+https//localhost:3000/
+
+insira a conta de visitante:
+user: guest
+password: secret_guest
 
 </details>
 
